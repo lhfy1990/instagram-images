@@ -16,8 +16,8 @@ var port = process.env.PORT || 8080;
 app.use('', express.static(path.join(__dirname, 'public')));
 
 // general
-var middleware = require('./router/middleware');
-app.use('/middleware', middleware);
+var endpoint = require('./router/endpoint');
+app.use('/endpoint', endpoint);
 // api
 var api = require('./router/api');
 app.use('/api', api);
