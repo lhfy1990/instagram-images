@@ -1,0 +1,25 @@
+{
+  "name": "instagram-images",
+  "description": "A free online tool to fetch instagram images from url of the post.",
+  "main": "",
+  "authors": [
+    "LHFY1990"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/assets/libs",
+    "public/test",
+    "public/tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.4",
+    "angular-bootstrap": "^2.5.0",
+    "bootstrap": "^3.4.0",
+    "angular-route": "^1.6.4",
+    "angular-cookies": "^1.6.9"
+  }
+}

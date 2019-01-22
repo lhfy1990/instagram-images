@@ -1,0 +1,25 @@
+{
+  "name": "instagram-images",
+  "version": "1.0.0",
+  "description": "A free online tool to fetch instagram images from url of the post.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "postinstall": "npm install bower && bower install",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "instagram"
+  ],
+  "author": "LHFY1990",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.1",
+    "express": "^4.16.4",
+    "jsdom": "^13.1.0"
+  },
+  "repositry": {
+    "type": "git",
+    "url": "https://github.com/lhfy1990/instagram-images.git"
+  }
+}

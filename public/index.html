@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="restApp">
+    <head>
+        <!--META-->
+        <meta charset="UTF-8">
+        <title>Instagram Images</title>
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="A free online tool to fetch instagram images from url of the post.">
+        <meta name="author" content="LHFY1990">
+        <link rel="icon" href="assets/img/favicon.ico">
+        <!--Bootstrap-->
+        <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap.min.css">
+        <!--Comment out theme for a flat design
+        <link rel="stylesheet" href="assets/libs/bootstrap/dist/css/bootstrap-theme.min.css">
+        -->
+        <!--CSS-->
+        <link rel="stylesheet" href="assets/css/style.min.css">
+    </head>
+    <body>
+        <div ng-view></div>
+        <!--Scripts-->
+        <script type="text/javascript" src="assets/libs/angular/angular.min.js"></script>
+        <script type="text/javascript" src="assets/libs/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script type="text/javascript" src="assets/libs/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="assets/libs/angular-cookies/angular-cookies.min.js"></script>
+        <!--App level Scripts-->
+        <script type="text/javascript" src="app/app.routes.js"></script>
+        <script type="text/javascript" src="app/app.module.js"></script>
+        <!--Component level Scripts: check references and load them dynamically in the future-->
+        <script type="text/javascript" src="app/components/home/homeController.js"></script>
+    </body>
+</html>

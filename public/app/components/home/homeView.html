@@ -1,0 +1,36 @@
+<div class="container" ng-controller="homeController as home">
+    <div class="row page-header text-center">
+        <h3>Instagram Images</h3>
+        <h4><small>Optimized downloader for multi-photo posts.</small></h4>
+    </div>
+    <div class="row text-center">
+        <div class="form-inline">
+            <div class="form-group">
+                <input type="text" class="form-control" id="insUrl" placeholder="https://instagram.com/p/41SW_pmmq4/" ng-model="home.insUrl">
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="home.getResources()">Download</button>
+        </div>
+        <div class="help-block">
+            <span ng-class="home.message.class" ng-show="home.message">{{home.message.text}}</span>&nbsp;
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 col-md-4" ng-repeat="image in home.images">
+            <div class="thumbnail">
+                <!-- <img src="{{image.display_url}}" alt="image.accessibility_caption"> -->
+                <a ng-href="{{image.display_url}}" target="_blank">
+                    <img ng-src="{{image.display_url}}" alt="{{image.accessibility_caption}}" class="img-responsive">
+                </a>
+                <div class="caption">
+                    <h5>{{image.id}}</h5>
+                    <p>Alternatives:</p>
+                    <div class="btn-group">
+                        <button class="btn btn-default" ng-repeat="resource in image.display_resources" ng-click="image.display_url=resource.src">
+                            <span class="text-xs">{{resource.config_width}} x {{resource.config_height}}</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
