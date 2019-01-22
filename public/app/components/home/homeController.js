@@ -13,7 +13,7 @@ angular.module('home')
                 return;
             }
             $http
-                .post('/middleware/getImageResourcesFromUrl', { url: this.insUrl })
+                .post('/endpoint/getImageResourcesFromUrl', { url: this.insUrl })
                 .then((res) => {
                     if (Array.isArray(res.data)) {
                         this.images = res.data;
