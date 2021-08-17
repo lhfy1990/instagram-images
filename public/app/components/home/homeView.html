@@ -19,13 +19,13 @@
             <div class="thumbnail">
                 <!-- <img src="{{image.display_url}}" alt="image.accessibility_caption"> -->
                 <a ng-href="{{image.display_url}}" target="_blank">
-                    <img ng-src="{{image.display_url}}" alt="{{image.accessibility_caption}}" class="img-responsive">
+                    <img ng-src="{{image.cached_url}}" alt="{{image.accessibility_caption}}" class="img-responsive">
                 </a>
                 <div class="caption">
                     <h5>{{image.id}}</h5>
                     <p>Alternatives:</p>
                     <div class="btn-group">
-                        <button class="btn btn-default" ng-repeat="resource in image.display_resources" ng-click="image.display_url=resource.src">
+                        <button class="btn btn-default" ng-repeat="resource in image.display_resources" ng-click="home.onClickAlternative(resource, image)">
                             <span class="text-xs">{{resource.config_width}} x {{resource.config_height}}</span>
                         </button>
                     </div>

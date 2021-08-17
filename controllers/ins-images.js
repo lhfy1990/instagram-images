@@ -1,5 +1,6 @@
 // requires
 let fs = require('fs');
+let PATH = require('path');
 let http = require('http');
 let https = require('https');
 let URL = require("url");
@@ -63,8 +64,21 @@ function getResourcesFunc(url, callback) {
     }).catch(err => { callback(err, []); });
 }
 
-function downloadFunc(url, path) {
+function downloadFunc(url, folder, callback) {
+    let root = PATH.join(__dirname, '..', 'public', 'downloads');
+    let path = PATH.join(root, folder);
     async.waterfall([
+        (cw) => {
+            fs.stat(root, (err, stats) => {
+                cw(null, !(err || !stats.isDirectory()));
+            });
+        },
+        (isExists, cw) => {
+            if (isExists) cw(null);
+            else {
+                fs.mkdir(root, cw);
+            }
+        },
         // initialize download folder
         (cw) => {
             fs.stat(path, (err, stats) => {
@@ -103,6 +117,7 @@ function downloadFunc(url, path) {
                                     Math.random().toString(36).substring(2, 15);
                                 let ext = src.split(/\#|\?/)[0].split('.').pop().trim();
                                 let file = fs.createWriteStream(path + '/' + filename + '.' + ext);
+                                resource.cached_url = '/downloads/' + folder + '/' + filename + '.' + ext;
                                 res.pipe(file);
                                 isDownloaded = true;
                             }
@@ -118,12 +133,12 @@ function downloadFunc(url, path) {
                         ces(null);
                     });
             }, (err) => {
-                if (message) cw({ message: message });
-                else cw(null);
+                if (message) cw(new Error(message));
+                else cw(null, resources);
             });
         }
-    ], (err) => {
-        console.log(err ? err.message : 'done');
+    ], (err, resources) => {
+      callback(err, resources);
     });
 
 }

@@ -37,5 +37,9 @@ angular.module('home')
                     };
                 });
         };
+        this.onClickAlternative = (resource, image) => {
+            image.display_url = resource.src;
+            // image.cached_url = resource.cached_src;
+        };
 
     }]);

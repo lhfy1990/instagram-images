@@ -28,7 +28,8 @@ router.post('/getImageResourcesFromUrl', function(req, res) {
         res.status(400).json({ message: "Please provide valid url!" });
         return;
     }
-    INS.getResources(data, (err, resources) => {
+    let path = data.match(/p\/(\w+)\//)[1];
+    INS.download(data, path, (err, resources) => {
         if (err) res.status(400).json({message: err.message});
         else if (resources.length===0) res.status(404).json(null);
         else res.status(200).json(resources);
