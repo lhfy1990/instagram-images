@@ -16,7 +16,7 @@
   "dependencies": {
     "async": "^2.6.1",
     "bower": "^1.8.12",
-    "express": "^4.16.4",
+    "express": "^4.17.3",
     "jsdom": "^13.1.0"
   },
   "repositry": {
